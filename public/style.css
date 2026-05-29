@@ -1,0 +1,322 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+    border: 1px solid var(--accent);
+    background: transparent;
+    color: var(--accent);
+    padding: 0.65rem 1rem;
+    border-radius: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.65rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border);
+    background: var(--input);
+    color: var(--text);
+}
+
+label {
+    display: grid;
+    gap: 0.35rem;
+    margin: 1rem 0;
+    color: var(--muted);
+}
+
+
+
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+h1,
+h2,
+h3 {
+    font-family: var(--font-title);
+}
+
+.panel {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1rem;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 1rem;
+}
+
+.sidebar {
+    align-self: start;
+    position: sticky;
+    top: 1rem;
+}
+
+.storyPage {
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    line-height: 1.65;
+}
+
+.storyPage:first-child {
+    padding-top: 0;
+}
+
+.meta {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+
+pre {
+    white-space: pre-wrap;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.app {
+    width: min(1100px, calc(100% - 2rem));
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 1rem 0;
+}
+
+.gameShell {
+    display: grid;
+    grid-template-rows: auto 1fr;
+    min-height: calc(100vh - 120px);
+}
+
+.tabs {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin: 0 0 0.75rem;
+}
+
+.tab {
+    border-color: var(--border);
+    color: var(--muted);
+}
+
+.tab.active {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.tabPanel {
+    display: none;
+    min-height: 0;
+}
+
+.tabPanel.active {
+    display: block;
+}
+
+.reader {
+    min-height: calc(100vh - 190px);
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.readerMeta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 0.75rem;
+}
+
+.currentPageText {
+    padding: 1.5rem 0;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    overflow-y: auto;
+}
+
+.choice {
+    display: block;
+    width: 100%;
+    text-align: left;
+    margin: 0.5rem 0;
+}
+
+.actionBox {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+}
+
+.runButton {
+    display: block;
+    width: 100%;
+    margin: 0.35rem 0;
+    text-align: left;
+}
+
+.topbarActions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.modelBadge {
+    border: 1px solid var(--border);
+    color: var(--muted);
+    border-radius: 999px;
+    padding: 0.4rem 0.7rem;
+    font-size: 0.85rem;
+    white-space: nowrap;
+}
+
+.pageLoading {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--muted);
+}
+
+.pageLoading strong {
+    display: block;
+    color: var(--accent);
+}
+
+.pageLoading span {
+    display: block;
+    font-size: 0.85rem;
+}
+
+.spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--border);
+    border-top-color: var(--accent);
+    border-radius: 50%;
+    margin: 0 auto;
+    animation: spin 0.8s linear infinite;
+}
+
+button:disabled,
+input:disabled {
+    opacity: 0.55;
+    cursor: wait;
+}
+
+.tabAction {
+    margin-left: auto;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+.sheetGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+}
+
+.characterSheet section {
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1rem;
+}
+
+.statRow {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border);
+    padding: 0.35rem 0;
+}
+
+.statRow:last-child {
+    border-bottom: 0;
+}
+
+.statKey {
+    color: var(--muted);
+}
+
+.statValue {
+    text-align: right;
+}
+
+@media (max-width: 800px) {
+    .tabAction {
+        margin-left: 0;
+    }
+
+    .sheetGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.hidden {
+    display: none !important;
+}
+
+.choiceType {
+    display: block;
+    opacity: 0.6;
+    font-size: 0.75rem;
+    margin-top: 0.25rem;
+}
+
+.homeActions {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin: 1rem 0;
+}
+.runButton {
+  position: relative;
+}
+
+.activeRun {
+  border-color: var(--accent);
+  background: rgba(180, 140, 255, 0.08);
+}
+
+.currentRunBadge {
+  float: right;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+@media (max-width: 800px) {
+    .layout {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        position: static;
+    }
+}

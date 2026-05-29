@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>InfinLit RPG</title>
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/themes/default.css" />
+</head>
+
+<body>
+    <main class="app">
+        <header class="topbar">
+            <div>
+                <h1>InfinLit RPG</h1>
+                <p id="subtitle">Local-first infinite LitRPG engine.</p>
+            </div>
+            <div class="topbarActions">
+                <span id="modelBadge" class="modelBadge">model: loading</span>
+
+            </div>
+        </header>
+<section id="homePanel" class="panel startPanel">
+  <p class="muted">Start a new run or continue a saved one.</p>
+
+  <div class="homeActions">
+    <button id="homeNewRunBtn">New Run</button>
+    <button id="homeContinueBtn">Continue</button>
+  </div>
+
+  <div id="homeNewRunPanel" class="homeMode hidden">
+    <h3>Begin a Run</h3>
+
+    <label>Genre <input id="genre" value="fantasy" /></label>
+    <label>Tone <input id="tone" value="weird, funny, adventurous" /></label>
+    <label>Character Idea <input id="character" value="a broke adventurer with bad luck" /></label>
+    <label>Theme <input id="theme" value="goblin bureaucracy starter dungeon" /></label>
+
+    <button id="beginBtn">Begin</button>
+
+    <div id="startLoading" class="pageLoading hidden">
+      <div class="spinner"></div>
+      <div>
+        <strong>Starting run…</strong>
+        <span>Building your paperback.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="homeContinuePanel" class="homeMode">
+    <h3>Saved Runs</h3>
+    <div id="homeRunList"></div>
+  </div>
+</section>
+
+        <section id="gamePanel" class="gameShell hidden">
+            <nav class="tabs">
+                <button class="tab active" data-tab="pageTab">Current Page</button>
+                <button class="tab" data-tab="characterTab">Character Sheet</button>
+                <button class="tab" data-tab="storyTab">Story</button>
+                <button class="tab" data-tab="historyTab">Runs</button>
+                <button class="tab" data-tab="debugTab">Debug</button>
+                <button id="newRunBtn" class="tab tabAction">Home</button>
+            </nav>
+
+            <section id="pageTab" class="tabPanel active">
+                <article class="reader panel">
+                    <div class="readerMeta" id="pageMeta"></div>
+                    <div id="currentPageText" class="currentPageText"></div>
+                    <div id="pageLoading" class="pageLoading hidden">
+                        <div class="spinner"></div>
+                        <div>
+                            <strong id="loadingLabel">Generating next page…</strong>
+                            <span>The paperback is thinking.</span>
+                        </div>
+                    </div>
+                    <div class="actionBox">
+                        <div id="choices"></div>
+
+                        <label>
+                            Custom Action
+                            <input id="customAction" placeholder="Try something dumb..." />
+                        </label>
+
+                        <button id="customActionBtn">Do It</button>
+                    </div>
+                </article>
+            </section>
+
+            <section id="debugTab" class="tabPanel">
+                <div class="panel">
+                    <h2>Debug Console</h2>
+                    <pre id="debugBox"></pre>
+                </div>
+            </section>
+
+            <section id="characterTab" class="tabPanel">
+                <div class="panel characterSheet">
+                    <div>
+                        <h2>Character Sheet</h2>
+                        <p id="characterConcept" class="muted"></p>
+                    </div>
+
+                    <div class="sheetGrid">
+                        <section>
+                            <h3>Player</h3>
+                            <div id="playerSheet"></div>
+                        </section>
+
+                        <section>
+                            <h3>Systems</h3>
+                            <div id="systemsSheet"></div>
+                        </section>
+
+                        <section>
+                            <h3>Resources</h3>
+                            <div id="resourcesSheet"></div>
+                        </section>
+
+                        <section>
+                            <h3>Inventory</h3>
+                            <ul id="inventorySheet"></ul>
+                        </section>
+                    </div>
+
+                    <details>
+                        <summary>Raw State</summary>
+                        <pre id="stateBox"></pre>
+                    </details>
+                </div>
+            </section>
+
+            <section id="historyTab" class="tabPanel">
+                <div class="panel">
+                    <h2>Run History</h2>
+                    <div id="runList"></div>
+                </div>
+            </section>
+
+            <section id="storyTab" class="tabPanel">
+                <div class="panel">
+                    <h2 id="runTitle">Run</h2>
+                    <p id="runPremise"></p>
+                    <h3>Story Summary</h3>
+                    <pre id="storySummary"></pre>
+                </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="/app.js"></script>
+</body>
+
+</html>

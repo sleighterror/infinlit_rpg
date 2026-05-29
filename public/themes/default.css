@@ -1,0 +1,11 @@
+:root {
+  --bg: #101014;
+  --panel: #181820;
+  --input: #101014;
+  --text: #f2f0ff;
+  --muted: #aaa6c8;
+  --border: #2e2a44;
+  --accent: #b48cff;
+  --font-body: system-ui, sans-serif;
+  --font-title: Georgia, serif;
+}
